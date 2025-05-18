@@ -1,0 +1,42 @@
+{
+  "name": "audio-transcriber-desktop-app",
+  "version": "1.0.0",
+  "description": "Minimal Electron app for microphone-to-text transcription and clipboard copy, reusing Audio Listener AI modules.",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "npm run build && electron .",
+    "build": "tsc && npm run copy-static && npm run copy-assets && npm run copy:env",
+    "copy-static": "copyfiles -u 1 src/*.html src/*.css src/*.js dist/",
+    "copy:env": "copyfiles -f .env dist",
+    "copy-assets": "copyfiles -u 1 src/assets/* dist/assets/",
+    "dist": "npm run build && electron-builder --dir"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/electron": "^1.4.38",
+    "@types/node": "^22.15.3",
+    "copyfiles": "^2.4.1",
+    "electron": "^36.1.0",
+    "electron-builder": "^24.13.3",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  },
+  "build": {
+    "files": [
+      "dist/**/*",
+      "src/index.html",
+      "!node_modules/.bin",
+      "node_modules/**/*.{js,json,node}",
+      "src/assets/**/*"
+    ],
+    "directories": {
+      "output": "release/"
+    },
+    "appId": "com.anderson.audiotranscriber",
+    "productName": "Audio Transcriber",
+    "icon": "src/assets/logo.ico"
+  }
+}
