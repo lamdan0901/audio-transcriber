@@ -22,16 +22,6 @@ if (process.platform === "win32") {
 // IF .env IS COPIED TO THE SAME DIRECTORY AS main.js (e.g., dist/)
 const envPath = path.join(__dirname, ".env");
 
-console.log(
-  "Attempting to load .env file from (absolute expected ASAR path relative to main.js):",
-  path.resolve(envPath)
-);
-console.log("Current __dirname (inside ASAR):", __dirname);
-console.log(
-  "Calculated envPath (targeting .env next to main.js in ASAR):",
-  envPath
-);
-
 // dotenv can often read from within ASAR if the path is correct relative to ASAR structure.
 // We skip fs.existsSync because it's unreliable for ASAR paths.
 try {
