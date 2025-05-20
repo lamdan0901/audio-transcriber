@@ -12,8 +12,6 @@ dist-ssr
 *.local
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
 .idea
 .DS_Store
 *.suo
@@ -29,3 +27,7 @@ server/audio/*
 LLM.zip
 vite.config.js
 release
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
+branch_structure.json
