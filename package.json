@@ -4,8 +4,8 @@
   "description": "Minimal Electron app for microphone-to-text transcription and clipboard copy, reusing Audio Listener AI modules.",
   "main": "dist/main.js",
   "scripts": {
-    "start": "npm run build && electron .",
-    "build": "tsc && npm run copy-static && npm run copy-assets && npm run copy:env",
+    "start": "node api.js && npm run build && electron .",
+    "build": "node api.js && tsc && npm run copy-static && npm run copy-assets && npm run copy:env",
     "copy-static": "copyfiles -u 1 src/*.html src/*.css src/*.js dist/",
     "copy:env": "copyfiles -f .env dist",
     "copy-assets": "copyfiles -u 1 src/assets/* dist/assets/",
